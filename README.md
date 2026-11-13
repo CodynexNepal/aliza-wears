@@ -1,70 +1,75 @@
-# Aliza Wears – Company-Wide Operating Standards (SOP-001) API
+# Aliza Wears E-Commerce Platform
 
-Production-ready Node.js + TypeScript + Express 5 + TypeORM + PostgreSQL API implementing SOP-001 with RBAC, DTO validation, and idempotency.
+## Overview
+A premium, mobile-first fashion e-commerce platform built with Node.js, Express, TypeScript, TypeORM, and PostgreSQL.
 
-## Architecture
+## Features
+- Product Catalogs with Sizes and Colors
+- Search and Filters
+- Wishlist and Cart
+- Coupons and Promotions
+- Checkout with Nepal-compatible Payments (eSewa, Khalti, Fonepay, COD)
+- Customer Accounts and Orders
+- Order Tracking and Returns
+- Inventory Management
+- Admin Dashboard
 
-```
-src/
-  config/        # env, database, app config
-  entities/      # TypeORM entities
-  repository/    # All TypeORM queries live here
-  services/      # Business logic
-  controllers/   # HTTP handlers
-  routes/        # Express routers
-  middleware/    # auth, rbac, idempotency, validation, error handler
-  dto/           # class-validator DTOs
-  utils/         # helpers
-  app.ts         # Express app factory
-  server.ts      # bootstrap
-```
+## Tech Stack
+- **Backend:** Node.js, Express, TypeScript, TypeORM, PostgreSQL
+- **Frontend:** Next.js, Tailwind CSS, React Hook Form, Yup
+- **Payments:** eSewa, Khalti, Fonepay, Cash on Delivery
+- **Security:** OWASP, JWT, RBAC, Idempotency
 
-## Quick Start
+## Getting Started
 
-```bash
-# 1. Start PostgreSQL
- docker compose up -d
+### Prerequisites
+- Node.js 18+
+- PostgreSQL 14+
 
-# 2. Install deps
- npm install
+### Installation
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Configure environment variables in `.env`
+4. Run migrations: `npm run migrate`
+5. Start the server: `npm run dev`
 
-# 3. Configure env
- cp .env.example .env
-
-# 4. Seed database
- npm run seed
-
-# 5. Run dev server
- npm run dev
-
-# 6. QA gates
- npm run typecheck
- npm run lint
- npm test
- npm run test:integration
-```
+### Environment Variables
+- `DB_HOST`: PostgreSQL host
+- `DB_PORT`: PostgreSQL port
+- `DB_USER`: PostgreSQL user
+- `DB_PASSWORD`: PostgreSQL password
+- `DB_NAME`: PostgreSQL database name
+- `JWT_SECRET`: Secret for JWT signing
+- `PORT`: Server port
 
 ## API Endpoints
 
-| Method | Path | Description | RBAC |
-|--------|------|-------------|------|
-| POST | /api/v1/sops | Create SOP | admin, editor |
-| GET | /api/v1/sops | List SOPs | all authenticated |
-| GET | /api/v1/sops/:id | Get SOP by id | all authenticated |
-| PUT | /api/v1/sops/:id | Update SOP | admin, editor |
-| DELETE | /api/v1/sops/:id | Delete SOP | admin |
-| POST | /api/v1/auth/login | Login | public |
+### Auth
+- `POST /api/auth/register` - Register a new user
+- `POST /api/auth/login` - Login
 
-## Idempotency
+### Products
+- `GET /api/products` - Get all products
+- `GET /api/products/:id` - Get a product by ID
+- `POST /api/products` - Create a new product (Admin only)
 
-Send an `Idempotency-Key` header on POST/PUT requests. Replays return the original response.
+## Testing
+- Unit tests: `npm test`
+- Integration tests: `npm run test:integration`
+- E2E tests: `npm run test:e2e`
 
-## RBAC Roles
+## Deployment
+- GitHub Actions for CI/CD
+- Docker for containerization
+- Kubernetes for orchestration
 
-- `admin` – full access
-- `editor` – create/update SOPs
-- `viewer` – read-only
+## Security
+- OWASP compliance
+- JWT authentication
+- RBAC authorization
+- Idempotency for payment requests
+- Rate limiting
+- Helmet for security headers
 
-## Environment Variables
-
-See `.env.example`.
+## License
+MIT
