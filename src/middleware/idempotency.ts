@@ -32,11 +32,11 @@ export const idempotency = () => {
       return res.json(JSON.parse(existing.response));
     }
 
-    const originalJson = res.json;
-    res.json = (body: any) => {
+    const originalJson = res.json.bind(res);
+    res.json = (body: any): Response => {
       const response = JSON.stringify(body);
       repo.save({ key, response }).catch(console.error);
-      originalJson.call(res, body);
+      return originalJson(body);
     };
 
     next();

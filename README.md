@@ -1,80 +1,81 @@
-# Aliza Wears UI/UX
+# Aliza Wears Monorepo
 
-A production-ready Next.js 15 + Tailwind CSS implementation of the Aliza Wears UI/UX, following the Wise-inspired Flat design system.
+This repository contains the frontend and backend for Aliza Wears.
 
-## Design System
+## Structure
 
-- **60-30-10 Color Balance:**
-  - 60%: Warm Alabaster (`#F7F7F5`) and White (`#FFFFFF`) surfaces
-  - 30%: Deep Charcoal Ink (`#0E0F0C`)
-  - 10%: Lime (`#C3FF7D` / `#9FE870`) for primary CTAs and active states
-- **Zero gradients, zero glassmorphism, zero artificial neon glow**
-- **Tabular-nums** for metrics, tokens, and prices
-- **Flat design** with clean borders and no shadows
-
-## Tech Stack
-
-- Next.js 15 (App Router)
-- React 19
-- Tailwind CSS 3.4
-- TypeScript 5.5
+- `backend/`: Node.js, TypeScript, Express, TypeORM, PostgreSQL API
+- `frontend/`: Next.js App Router, Tailwind CSS, React Hook Form, Yup
 
 ## Getting Started
 
-```bash
-# Install dependencies
-npm install
+### Backend
 
-# Run development server
-npm run dev
+1. Navigate to the `backend` folder:
+   ```bash
+   cd backend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env` file based on `.env.example`:
+   ```bash
+   cp .env.example .env
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-# Build for production
-npm run build
+### Frontend
 
-# Start production server
-npm start
+1. Navigate to the `frontend` folder:
+   ```bash
+   cd frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-# Run linting
-npm run lint
+## Environment Variables
 
-# Run type checking
-npm run typecheck
-```
+### Backend
 
-## Project Structure
+- `DATABASE_URL`: PostgreSQL connection string
+- `PORT`: Port for the backend server (default: 3001)
+- `JWT_SECRET`: Secret for JWT signing
+- `IDEMPOTENCY_TTL`: Time-to-live for idempotency keys in seconds
 
-```
-src/
-├── app/
-│   ├── layout.tsx          # Root layout with Header/Footer
-│   ├── page.tsx            # Home page
-│   ├── products/
-│   │   ├── page.tsx        # Product listing
-│   │   └── [id]/
-│   │       └── page.tsx    # Product detail
-│   ├── not-found.tsx       # 404 page
-│   └── globals.css         # Global styles
-├── components/
-│   ├── layout/
-│   │   ├── Header.tsx      # Site header
-│   │   └── Footer.tsx      # Site footer
-│   ├── ui/
-│   │   ├── Button.tsx      # Reusable button
-│   │   ├── Card.tsx        # Reusable card
-│   │   ├── Input.tsx       # Reusable input
-│   │   └── Badge.tsx       # Reusable badge
-│   └── products/
-│       └── ProductCard.tsx # Product card component
-└── lib/
-    └── products.ts         # Product data with deterministic fallbacks
-```
+### Frontend
 
-## SOP Compliance
+- `NEXT_PUBLIC_API_URL`: URL for the backend API (default: http://localhost:3001)
 
-- **SOP-001:** Follows Aliza Wears Company-Wide Operating Standards
-- **UI/UX Playbook:** Implements Wise-inspired Flat design with 60-30-10 color balance
-- **QA Verification:** All code passes `tsc --noEmit`, `eslint`, and type checking
+## API Endpoints
 
-## License
+- `GET /health`: Health check
+- `GET /api/products`: List all products
+- `POST /api/products`: Create a new product
+- `GET /api/products/:id`: Get a product by ID
 
-© 2024 Aliza Wears. All rights reserved.
+## Design System
+
+- Colors: Warm alabaster (#F7F7F5), white (#FFFFFF), deep charcoal ink (#0E0F0C), lime (#C3FF7D / #9FE870)
+- Typography: Tabular-nums for metrics
+- No gradients, glassmorphism, or neon glow
+
+## QA Verification
+
+Before marking any engineering task complete:
+1. Run `tsc --noEmit`
+2. Run `eslint`
+3. Run unit tests
+4. Run integration tests
+5. Check API responses, RBAC permissions, and database integrity
+
+If any check fails, spawn a linked correction task assigned to the responsible engineer.
