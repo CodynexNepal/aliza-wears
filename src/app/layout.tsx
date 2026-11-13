@@ -1,28 +1,22 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Aliza Wears",
-  description: "Premium fashion with a flat, clean aesthetic.",
+  title: 'Aliza Wears - Modern Fashion',
+  description: 'Discover the latest trends in fashion with Aliza Wears. Quality, style, and comfort.',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className="min-h-screen bg-alabaster text-ink font-sans">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-      </body>
+    <html lang="en">
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }

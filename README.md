@@ -1,81 +1,31 @@
-# Aliza Wears Monorepo
+# Aliza Wears - Landing Page
 
-This repository contains the frontend and backend for Aliza Wears.
+## Overview
+This repository contains the frontend landing page for Aliza Wears, built with Next.js App Router and Tailwind CSS.
 
-## Structure
+## Design System (SOP-001 & UI/UX Playbook)
+- **Style:** Wise-Inspired Flat Design.
+- **Constraints:** Zero gradients, zero glassmorphism, zero artificial neon glow.
+- **Color Theory (60-30-10 Rule):**
+  - **60% (Primary Surfaces):** Warm Alabaster (`#F7F7F5`) and White (`#FFFFFF`).
+  - **30% (Secondary/Text):** Deep Charcoal Ink (`#0E0F0C`).
+  - **10% (Accent/CTA):** Lime (`#C3FF7D` / `#9FE870`).
+- **Typography:**
+  - Primary: Inter (sans-serif).
+  - Metrics/Numbers: `tabular-nums` for consistent alignment of prices and stats.
 
-- `backend/`: Node.js, TypeScript, Express, TypeORM, PostgreSQL API
-- `frontend/`: Next.js App Router, Tailwind CSS, React Hook Form, Yup
+## UX Principles Applied
+1. **Responsive Design:** Mobile-first approach with breakpoints for tablet and desktop.
+2. **Accessibility:** Semantic HTML, ARIA labels, and high contrast ratios.
+3. **Visual Hierarchy:** Clear distinction between headings, body text, and CTAs.
+4. **Performance:** Optimized images (Next/Image), minimal CSS, and server-side rendering.
 
 ## Getting Started
+1. Install dependencies: `npm install`
+2. Run development server: `npm run dev`
+3. Build for production: `npm run build`
 
-### Backend
-
-1. Navigate to the `backend` folder:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Create a `.env` file based on `.env.example`:
-   ```bash
-   cp .env.example .env
-   ```
-4. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-### Frontend
-
-1. Navigate to the `frontend` folder:
-   ```bash
-   cd frontend
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the development server:
-   ```bash
-   npm run dev
-   ```
-
-## Environment Variables
-
-### Backend
-
-- `DATABASE_URL`: PostgreSQL connection string
-- `PORT`: Port for the backend server (default: 3001)
-- `JWT_SECRET`: Secret for JWT signing
-- `IDEMPOTENCY_TTL`: Time-to-live for idempotency keys in seconds
-
-### Frontend
-
-- `NEXT_PUBLIC_API_URL`: URL for the backend API (default: http://localhost:3001)
-
-## API Endpoints
-
-- `GET /health`: Health check
-- `GET /api/products`: List all products
-- `POST /api/products`: Create a new product
-- `GET /api/products/:id`: Get a product by ID
-
-## Design System
-
-- Colors: Warm alabaster (#F7F7F5), white (#FFFFFF), deep charcoal ink (#0E0F0C), lime (#C3FF7D / #9FE870)
-- Typography: Tabular-nums for metrics
-- No gradients, glassmorphism, or neon glow
-
-## QA Verification
-
-Before marking any engineering task complete:
-1. Run `tsc --noEmit`
-2. Run `eslint`
-3. Run unit tests
-4. Run integration tests
-5. Check API responses, RBAC permissions, and database integrity
-
-If any check fails, spawn a linked correction task assigned to the responsible engineer.
+## References
+- Wise.com (Flat design, clean typography, clear CTAs)
+- Stripe.com (Minimalist layout, strong visual hierarchy)
+- Apple.com (Product-focused, clean whitespace)
