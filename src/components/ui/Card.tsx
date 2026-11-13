@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 
 interface CardProps {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
 }
 
@@ -14,7 +14,7 @@ export function Card({ children, className = "" }: CardProps) {
 }
 
 interface CardHeaderProps {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
 }
 
@@ -27,7 +27,7 @@ export function CardHeader({ children, className = "" }: CardHeaderProps) {
 }
 
 interface CardContentProps {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
 }
 
@@ -40,7 +40,7 @@ export function CardContent({ children, className = "" }: CardContentProps) {
 }
 
 interface CardFooterProps {
-  children: ReactNode;
+  children?: ReactNode;
   className?: string;
 }
 
