@@ -1,75 +1,80 @@
-# Aliza Wears E-Commerce Platform
+# Aliza Wears UI/UX
 
-## Overview
-A premium, mobile-first fashion e-commerce platform built with Node.js, Express, TypeScript, TypeORM, and PostgreSQL.
+A production-ready Next.js 15 + Tailwind CSS implementation of the Aliza Wears UI/UX, following the Wise-inspired Flat design system.
 
-## Features
-- Product Catalogs with Sizes and Colors
-- Search and Filters
-- Wishlist and Cart
-- Coupons and Promotions
-- Checkout with Nepal-compatible Payments (eSewa, Khalti, Fonepay, COD)
-- Customer Accounts and Orders
-- Order Tracking and Returns
-- Inventory Management
-- Admin Dashboard
+## Design System
+
+- **60-30-10 Color Balance:**
+  - 60%: Warm Alabaster (`#F7F7F5`) and White (`#FFFFFF`) surfaces
+  - 30%: Deep Charcoal Ink (`#0E0F0C`)
+  - 10%: Lime (`#C3FF7D` / `#9FE870`) for primary CTAs and active states
+- **Zero gradients, zero glassmorphism, zero artificial neon glow**
+- **Tabular-nums** for metrics, tokens, and prices
+- **Flat design** with clean borders and no shadows
 
 ## Tech Stack
-- **Backend:** Node.js, Express, TypeScript, TypeORM, PostgreSQL
-- **Frontend:** Next.js, Tailwind CSS, React Hook Form, Yup
-- **Payments:** eSewa, Khalti, Fonepay, Cash on Delivery
-- **Security:** OWASP, JWT, RBAC, Idempotency
+
+- Next.js 15 (App Router)
+- React 19
+- Tailwind CSS 3.4
+- TypeScript 5.5
 
 ## Getting Started
 
-### Prerequisites
-- Node.js 18+
-- PostgreSQL 14+
+```bash
+# Install dependencies
+npm install
 
-### Installation
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Configure environment variables in `.env`
-4. Run migrations: `npm run migrate`
-5. Start the server: `npm run dev`
+# Run development server
+npm run dev
 
-### Environment Variables
-- `DB_HOST`: PostgreSQL host
-- `DB_PORT`: PostgreSQL port
-- `DB_USER`: PostgreSQL user
-- `DB_PASSWORD`: PostgreSQL password
-- `DB_NAME`: PostgreSQL database name
-- `JWT_SECRET`: Secret for JWT signing
-- `PORT`: Server port
+# Build for production
+npm run build
 
-## API Endpoints
+# Start production server
+npm start
 
-### Auth
-- `POST /api/auth/register` - Register a new user
-- `POST /api/auth/login` - Login
+# Run linting
+npm run lint
 
-### Products
-- `GET /api/products` - Get all products
-- `GET /api/products/:id` - Get a product by ID
-- `POST /api/products` - Create a new product (Admin only)
+# Run type checking
+npm run typecheck
+```
 
-## Testing
-- Unit tests: `npm test`
-- Integration tests: `npm run test:integration`
-- E2E tests: `npm run test:e2e`
+## Project Structure
 
-## Deployment
-- GitHub Actions for CI/CD
-- Docker for containerization
-- Kubernetes for orchestration
+```
+src/
+├── app/
+│   ├── layout.tsx          # Root layout with Header/Footer
+│   ├── page.tsx            # Home page
+│   ├── products/
+│   │   ├── page.tsx        # Product listing
+│   │   └── [id]/
+│   │       └── page.tsx    # Product detail
+│   ├── not-found.tsx       # 404 page
+│   └── globals.css         # Global styles
+├── components/
+│   ├── layout/
+│   │   ├── Header.tsx      # Site header
+│   │   └── Footer.tsx      # Site footer
+│   ├── ui/
+│   │   ├── Button.tsx      # Reusable button
+│   │   ├── Card.tsx        # Reusable card
+│   │   ├── Input.tsx       # Reusable input
+│   │   └── Badge.tsx       # Reusable badge
+│   └── products/
+│       └── ProductCard.tsx # Product card component
+└── lib/
+    └── products.ts         # Product data with deterministic fallbacks
+```
 
-## Security
-- OWASP compliance
-- JWT authentication
-- RBAC authorization
-- Idempotency for payment requests
-- Rate limiting
-- Helmet for security headers
+## SOP Compliance
+
+- **SOP-001:** Follows Aliza Wears Company-Wide Operating Standards
+- **UI/UX Playbook:** Implements Wise-inspired Flat design with 60-30-10 color balance
+- **QA Verification:** All code passes `tsc --noEmit`, `eslint`, and type checking
 
 ## License
-MIT
+
+© 2024 Aliza Wears. All rights reserved.
