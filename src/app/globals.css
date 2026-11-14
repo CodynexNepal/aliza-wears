@@ -3,19 +3,47 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 14, 15, 12;
-  --background-rgb: 247, 247, 245;
+  --color-alabaster: #F7F7F5;
+  --color-white: #FFFFFF;
+  --color-charcoal: #0E0F0C;
+  --color-lime: #C3FF7D;
+  --color-lime-dark: #9FE870;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
-  font-family: var(--font-inter), system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-alabaster);
+  color: var(--color-charcoal);
+  font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* Ensure tabular nums for metrics */
-.tabular-nums {
-  font-variant-numeric: tabular-nums;
+/* Aliza Character Animations */
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-20deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-wave {
+  animation: wave 1.5s ease-in-out;
+}
+
+/* Ensure arm rotates around the shoulder */
+.aliza-arm {
+  transform-origin: 70px 50px;
+}
+
+.animate-wave .aliza-arm {
+  animation: wave 1.5s ease-in-out;
 }
